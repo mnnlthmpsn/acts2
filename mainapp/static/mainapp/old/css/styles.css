@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+nav {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+}
+
+.nav-content {
+  max-width: 100%;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  background: #c0392b;
+}
+
+.content {
+  margin-top: 2%;
+}
+
+.nav-content a {
+  display: block;
+  font-size: 14px;
+  line-height: 44px;
+  text-decoration: none;
+  transition: all 0.3s;
+  color: #ffffff;
+}
+
+.nav-content a:hover, .nav-icon:hover, .search-icon:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  color: #f0e6e6;
+}
+
+.nav-links {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-icon {
+  display: none;
+  grid-gap: 5px;
+  grid-template-columns: auto;
+  padding: 17px 0;
+  height: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-card {
+  margin-top: 8%;
+}
+
+.bar {
+  height: 1px;
+  width: 18px;
+  background: white;
+  transition: 0.5s;
+}
+
+.show .one {
+  transform: rotate(45deg) translateY(5.5px);
+}
+
+.show .two {
+  transform: rotate(-45deg) translateY(-5.5px);
+}
+
+.who-we-are {
+  background-color: #cc9922;
+  background-image: url('../img/whoweare.jpg'), linear-gradient(#c0392b, #cc9922);
+  color: white;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.who-we-are h6 {
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+  text-align: center;
+  padding: 20px;
+  font-size: larger;
+  font-weight: lighter;
+}
+
+.our-leaders {
+  margin-bottom: 100px;
+}
+
+
+.footer {
+  margin-top: 30px;
+  min-height: 150px;
+  border: 1px solid white;
+  box-shadow: 10px 5px 10px 5px rgba(131, 127, 127, 0.596);
+}
+
+.footer-group {
+  margin-top: 4%;
+ align-items: center;
+}
+
+.banner {
+  margin-left: 25%;
+}
+
+.about-us {
+  width: 300px !important;
+  height: 300px !important;
+  border: 1px solid white;
+  border-radius: 50% !important;
+}
+
+.myForm {
+  width: 60% !important;
+  margin: auto;
+  margin-bottom: 100px !important;
+}
+
+.footer-icon {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.cardHeader {
+  text-align: center;
+  font-weight: bolder;
+  color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .about-us {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 44px;
+    right: 0;
+    height: 0;
+    width: 100%;
+    background: #c0392b;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all 2s cubic-bezier(0.19, 1, 0.22, 1)
+  } 
+
+  .show .nav-links {
+    height: 35%;
+  }
+
+  .nav-links a {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-right: 50px;
+    margin-left: 50px;
+    transition: opacity 1.5s, height 2s
+  }
+
+  .show .nav-links a {
+    opacity: 1;
+    width: auto;
+    height: auto;
+  }
+
+  .nav-icon {
+    order: 1;
+    display: grid;
+  }
+
+  .logo {
+    order: 2;
+  }
+
+  .search-icon {
+    order: 3
+  }
+
+  .banner {
+    margin-left: 1%;
+  }
+
+  .myForm {
+    width: 100% !important;
+    margin: auto;
+    margin-bottom: 100px !important;
+  }
+}

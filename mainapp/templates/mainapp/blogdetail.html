@@ -1,0 +1,108 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block body %}
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Blog</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- ##### Blog Content Area Start ##### -->
+<section class="blog-content-area section-padding-100">
+    <div class="container" style="width: 80% !important;">
+        <div class="row justify-content-center">
+            <!-- Blog Posts Area -->
+            {% if blog %}
+                <div class="col-24 col-lg-24">
+                    <div class="blog-posts-area">
+
+                        <!-- Post Details Area -->
+                        <div class="single-post-details-area">
+                            <div class="post-thumbnail mb-30">
+                                <img src="{{ blog.url }}" alt="">
+                            </div>
+                            <div class="post-content">
+                                <h4>{{ blog.title }}</h4>
+                                {% autoescape off %}
+                                {{ blog.content }}
+                                {% endautoescape %}
+                            </div>
+                            <span>Published by {{ blog.author.username }} on {{ blog.pub_date }}</span>
+                        </div>
+
+                        <!-- Comment Area Start -->
+                        <hr style="border: 1px solid grey; width: 80px; margin-bottom: 100px;">
+                        <div>
+                            <h4 class="headline">{% if blog.comment_set.all.count < 2 %}{{ blog.comment_set.all.count }} comment {% else %}{{ blog.comment_set.all.count }} comments {% endif %}</h4>
+                            <hr style="border: 1px solid grey; width: 80px; margin-bottom: 50px;">
+                            <ol>
+                                <li class="single_comment_area">
+                                    <div class="comment-wrapper">
+                                        <!-- Comment Content -->
+                                        {% for comment in blog.comment_set.all %}
+                                        <div class="comment-content">
+                                            <span class="comment-date">{{ comment.date }}</span>
+                                            <h5>{{ comment.author }}</h5>
+                                            <p>{{ comment.content }}
+                                            </p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <!-- Leave A Comment -->
+                        <div class="leave-comment-area mt-50 clearfix">
+                            <div class="comment-form">
+                                <h4 class="headline">Leave A Comment</h4>
+                                <!-- Contact Form Area -->
+                                <div class="contact-form-area">
+                                    <form action="{% url 'mainapp:comment' blog.id %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="contact-name" name="name"
+                                                        placeholder="Name">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="comment" id="message" cols="30"
+                                                        rows="10" placeholder="Comment"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn crose-btn mt-15">Post Comment</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p>Nothing to show</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

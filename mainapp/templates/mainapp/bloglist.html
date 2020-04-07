@@ -1,0 +1,82 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'mainapp:index' %}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- ##### Blog Area Start ##### -->
+<div class="blog-area section-padding-100">
+    <div class="container" style="width: 80% !important;">
+        <div class="row justify-content-between">
+            <!-- Blog Post Area -->
+            <div class="col-24 col-lg-20">
+                <div class="row">
+
+                    <!-- Single Blog Post Area -->
+                    {% if page_obj %}
+                    {% for blog in page_obj %}
+                    <div class="col-12 col-md-6">
+                        <div class="single-blog-post mb-50">
+                            <div class="post-thumbnail">
+                                <a href="{% url 'mainapp:blog_detail' blog.id %}"><img src="{% static 'mainapp/img/bg-img/10.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <a href="{% url 'mainapp:blog_detail' blog.id %}" class="post-title">
+                                    <h4>{{ blog.title }}</h4>
+                                </a>
+                                <div class="post-meta d-flex">
+                                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{ blog.author.username }}</a>
+                                    <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> {{ blog.pub_date }}</a>
+                                </div>
+                                <p class="post-excerpt">{{ blog.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                        <p>No blogs</p>
+                    {% endif %}
+
+                </div>
+                <div class="pagination-area">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                            <li class="page-item active"><a class="page-link" href="?page=1" style="width: 80px;">first</a></li>
+                            <li class="page-item active"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+                            {% endif %}
+                            <li class="page-item" style="margin: 10px 0 0 30px;">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</li>
+                            {% if page_obj.has_next %}
+                            <li class="page-item active"><a class="page-link" href="?page={{ page_obj.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" style="width: 80px;">last</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Sidebar Area -->
+            
+        </div>
+    </div>
+</div>
+<!-- ##### Blog Area End ##### -->
+
+{% endblock %}

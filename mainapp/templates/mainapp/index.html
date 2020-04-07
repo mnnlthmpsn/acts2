@@ -1,0 +1,233 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block body %}
+<!-- ##### Hero Area Start ##### -->
+<section class="hero-area hero-post-slides owl-carousel">
+    <!-- Single Hero Slide -->
+    <div class="single-hero-slide bg-img bg-overlay d-flex align-items-center justify-content-center"
+        style="background-image: url('../../static/mainapp/img/bg-img/1.jpg');">
+        <!-- Post Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="hero-slides-content">
+                        <h2 data-animation="fadeInUp" data-delay="100ms">Building The Hope</h2>
+                        <p data-animation="fadeInUp" data-delay="300ms">Learn about our mission, our beliefs, and the
+                            hope we have in Jesus.</p>
+                        <a href="#" class="btn crose-btn" data-animation="fadeInUp" data-delay="500ms">About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single Hero Slide -->
+    <div class="single-hero-slide bg-img bg-overlay d-flex align-items-center justify-content-center"
+        style="background-image:url('../../static/mainapp/img/bg-img/2.jpg');">
+        <!-- Post Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="hero-slides-content">
+                        <h2 data-animation="fadeInUp" data-delay="100ms">Making Jesus Known</h2>
+                        <p data-animation="fadeInUp" data-delay="300ms">Learn about our mission, our beliefs, and the
+                            hope we have in Jesus.</p>
+                        <a href="#" class="btn crose-btn" data-animation="fadeInUp" data-delay="500ms">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Hero Area End ##### -->
+
+<!-- ##### About Area Start ##### -->
+<section class="about-area section-padding-100-0">
+    <div class="container">
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-12">
+                <div class="section-heading">
+                    <h2>Welcome To Church</h2>
+                    <p>A church isn't a building—it's the people. We meet in locations here in Accra and
+                        globally at Life.Church Online. No matter where you join us.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row about-content justify-content-center">
+            <!-- Single About Us Content -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="about-us-content mb-100">
+                    <img src="{% static 'mainapp/img/bg-img/3.jpg' %}" alt="">
+                    <div class="about-text">
+                        <h4>Our Church</h4>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form.</p>
+                        <a href="{% url 'mainapp:about' %}">Read More <i class="fa fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single About Us Content -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="about-us-content mb-100">
+                    <img src="{% static 'mainapp/img/bg-img/4.jpg' %}" alt="">
+                    <div class="about-text">
+                        <h4>Our History</h4>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form.</p>
+                        <a href="{% url 'mainapp:about' %}">Read More <i class="fa fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single About Us Content -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="about-us-content mb-100">
+                    <img src="{% static 'mainapp/img/bg-img/5.jpg' %}" alt="">
+                    <div class="about-text">
+                        <h4>Our Beliefs</h4>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form.</p>
+                        <a href="{% url 'mainapp:about' %}">Read More <i class="fa fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### About Area End ##### -->
+
+<!-- ##### Call To Action Area Start ##### -->
+<section class="call-to-action-area section-padding-100 bg-img bg-overlay"
+    style="background-image: url(../../static/mainapp/img/bg-img/6.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="call-to-action-content text-center">
+                    <h6>A Place For You</h6>
+                    <h2>Find a place to connect and grow through a small group, class, or regular gathering.</h2>
+                    <a href="#" class="btn crose-btn btn-2">Become A Member</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Call To Action Area End ##### -->
+
+<!-- ##### Latest Sermons Area Start ##### -->
+<section class="latest-sermons-area section-padding-100-0">
+    <div class="container">
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-12">
+                <div class="section-heading">
+                    <h2>Latest Blog Posts</h2>
+                    <p>Loaded with wonderful and must-read articles to address real issues that each of us
+                        face each day as Christians</p>
+                    <a href="#" class="btn crose-btn header-btn">Visit Blog</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Single Latest Sermons -->
+            {% if blogs %}
+            {% for blog in blogs %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single-latest-sermons mb-100">
+                    <div class="sermons-thumbnail">
+                        <img src="{{ blog.url }}" alt="">
+                        <!-- Date -->
+                        <div class="sermons-date">
+                            <h6><span>{{ blog.pub_date.day }}</span>{{ blog.pub_date|date:'F' }}</h6>
+                        </div>
+                    </div>
+                    <div class="sermons-content">
+                        <div class="sermons-cata">
+                        </div>
+                        <h4>{{ blog.title }}</h4>
+                        <div class="sermons-meta-data">
+                            <p><i class="fa fa-user" aria-hidden="true"></i> Published by
+                                {{ blog.author.username }}</p>
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>Published on
+                                {{ blog.pub_date }}</p>
+                            <a href="{% url 'mainapp:blog_detail' blog.id %}" class="btn crose-btn header-btn">Read</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No blog post</p>
+            {% endif %}
+
+        </div>
+    </div>
+</section>
+<!-- ##### Latest Sermons Area End ##### -->
+
+<!-- ##### Upcoming Events Area Start ##### -->
+<section class="upcoming-events-area section-padding-0-100">
+    <!-- Upcoming Events Heading Area -->
+    <div class="upcoming-events-heading bg-img bg-overlay bg-fixed"
+        style="background-image: url(../../static/mainapp/img/bg-img/1.jpg);">
+        <div class="container">
+            <div class="row">
+                <!-- Section Heading -->
+                <div class="col-12">
+                    <div class="section-heading text-left white">
+                        <h2>Upcoming Events</h2>
+                        <p>Be sure to visit our Upcoming Events page regularly to get infomartion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events Slide -->
+    {% if events %}
+    {% for event in events %}
+    <div class="upcoming-events-slides-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="single-slide">
+                        <!-- Single Upcoming Events Area -->
+                        <div class="single-upcoming-events-area d-flex flex-wrap align-items-center">
+                            <!-- Thumbnail -->
+                            <div class="upcoming-events-thumbnail">
+                                <img src="{{ event.url }}" alt="">
+                            </div>
+                            <!-- Content -->
+                            <div class="upcoming-events-content d-flex flex-wrap align-items-center">
+                                <div class="events-text">
+                                    <h4>{{event.name}}</h4>
+                                    <div class="events-meta">
+                                        <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                            {{ event.date|date:'Y-m-d' }}</a>
+                                        <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>
+                                            {{ event.date|date:'H:i' }}</a>
+                                        <a href="#"><i class="fa fa-map-marker"
+                                                aria-hidden="true"></i>{{ event.location }}</a>
+                                    </div>
+                                    <p>{{ event.description }}</p>
+                                    <a href="#">Contact Us for more info</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No events</p>
+    {% endif %}
+</section>
+<!-- ##### Upcoming Events Area End ##### -->
+{% endblock %}
