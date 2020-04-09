@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
+from django.contrib import messages
 from django.core.paginator import Paginator
 from django.urls import reverse
+from django.core.files import File
 
 from .models import Blog, Event, Comment
 
@@ -17,6 +19,9 @@ def index(request):
 
 def about(request):
     return render(request, 'mainapp/about.html')
+
+def contact(request):
+    return render(request, 'mainapp/contact.html')
 
 def comment(request, blog_id):
     name = request.POST['name']
@@ -38,8 +43,12 @@ def blogDetail(request, blog_id):
     return render(request, 'mainapp/blogdetail.html', {'blog': blog})
 
 def mail(request):
+    name = request.POST['name']
     email = request.POST['email']
-    suggestion = request.POST['mail-content']
-    send_mail('',suggestion, email, ['mnnlthmpsn@outlook.com'])
-    print('sending mail to %s' % email)
-    return HttpResponseRedirect(reverse('mainapp:index'), {'message': 'hi'})
+    message = request.POST['message'] + ' sent by:' + email
+    try:
+        send_mail(('message from %s' % name),message, email, ['info.actschapter2@gmail.com'])
+        messages.add_message(request, messages.SUCCESS, 'Mail sent successfully')
+    except:
+        messages.add_message(request, messages.WARNING, 'Mail not sent')
+    return HttpResponseRedirect(reverse('mainapp:contact'),)

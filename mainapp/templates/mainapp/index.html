@@ -16,7 +16,8 @@
                         <h2 data-animation="fadeInUp" data-delay="100ms">Building The Hope</h2>
                         <p data-animation="fadeInUp" data-delay="300ms">Learn about our mission, our beliefs, and the
                             hope we have in Jesus.</p>
-                        <a href="#" class="btn crose-btn" data-animation="fadeInUp" data-delay="500ms">About Us</a>
+                        <a href="{% url 'mainapp:about' %}" class="btn crose-btn" data-animation="fadeInUp"
+                            data-delay="500ms">About Us</a>
                     </div>
                 </div>
             </div>
@@ -34,7 +35,8 @@
                         <h2 data-animation="fadeInUp" data-delay="100ms">Making Jesus Known</h2>
                         <p data-animation="fadeInUp" data-delay="300ms">Learn about our mission, our beliefs, and the
                             hope we have in Jesus.</p>
-                        <a href="#" class="btn crose-btn" data-animation="fadeInUp" data-delay="500ms">Contact Us</a>
+                        <a href="{% url 'mainapp:contact' %}" class="btn crose-btn" data-animation="fadeInUp"
+                            data-delay="500ms">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -63,9 +65,9 @@
                 <div class="about-us-content mb-100">
                     <img src="{% static 'mainapp/img/bg-img/3.jpg' %}" alt="">
                     <div class="about-text">
-                        <h4>Our Church</h4>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form.</p>
+                        <h4>Our Ministry</h4>
+                        <p>Our ministry is a very special, family-like, lively and multi-cultural community. We have a
+                            broad and diverse congregation both in terms of its focus and membership</p>
                         <a href="{% url 'mainapp:about' %}">Read More <i class="fa fa-angle-double-right"></i></a>
                     </div>
                 </div>
@@ -77,8 +79,9 @@
                     <img src="{% static 'mainapp/img/bg-img/4.jpg' %}" alt="">
                     <div class="about-text">
                         <h4>Our History</h4>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form.</p>
+                        <p>In recent years, as a result of a fervent desire to see growth, both spiritually and
+                            numerically within the ministry, we have wanted to have a more flexible and user-friendly
+                            environment for those within the ministry and the wider community</p>
                         <a href="{% url 'mainapp:about' %}">Read More <i class="fa fa-angle-double-right"></i></a>
                     </div>
                 </div>
@@ -90,8 +93,8 @@
                     <img src="{% static 'mainapp/img/bg-img/5.jpg' %}" alt="">
                     <div class="about-text">
                         <h4>Our Beliefs</h4>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form.</p>
+                        <p>Our ministry is affiliated to a number charismatic and Pentecostal denominations and churches
+                            locally and international, and accepts its basis of faith</p>
                         <a href="{% url 'mainapp:about' %}">Read More <i class="fa fa-angle-double-right"></i></a>
                     </div>
                 </div>
@@ -110,7 +113,7 @@
                 <div class="call-to-action-content text-center">
                     <h6>A Place For You</h6>
                     <h2>Find a place to connect and grow through a small group, class, or regular gathering.</h2>
-                    <a href="#" class="btn crose-btn btn-2">Become A Member</a>
+                    <a href="{% url 'mainapp:contact' %}" class="btn crose-btn btn-2">Become A Member</a>
                 </div>
             </div>
         </div>
@@ -128,7 +131,7 @@
                     <h2>Latest Blog Posts</h2>
                     <p>Loaded with wonderful and must-read articles to address real issues that each of us
                         face each day as Christians</p>
-                    <a href="#" class="btn crose-btn header-btn">Visit Blog</a>
+                    <a href="{% url 'mainapp:blog_list' %}" class="btn crose-btn header-btn">Visit Blog</a>
                 </div>
             </div>
         </div>
@@ -215,7 +218,7 @@
                                                 aria-hidden="true"></i>{{ event.location }}</a>
                                     </div>
                                     <p>{{ event.description }}</p>
-                                    <a href="#">Contact Us for more info</a>
+                                    <a href="{% url 'mainapp:contact' %}">Contact Us for more info</a>
                                 </div>
                             </div>
                         </div>

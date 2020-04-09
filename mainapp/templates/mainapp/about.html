@@ -1,4 +1,5 @@
 {% extends '../base.html' %}
+{% load static %}
 
 {% block body %}
 <!-- ##### Breadcrumb Area Start ##### -->
@@ -24,28 +25,35 @@
         <div class="row align-items-center justify-content-between">
             <div class="col-12 col-lg-5">
                 <div class="about-content">
-                    <h2>Welcome To Crose</h2>
-                    <p>It’s very important to believe that you’re the one. We aim to take a different approach in
-                        reaching out and helping people along the journey. We stress cultural relevancy and utilize all
-                        medias and means to communicate the church message. It’s very important to believe that you’re
-                        the one.</p>
+                    <h2>Welcome To Acts 2 Ministries</h2>
+                    <p>It’s very important to believe that you’re loved by God. We aim to take a different
+                        approach in
+                        reaching out and helping people realize that Jesus died each and every one of us. We utilize all
+                        medias and means to communicate the church's message, through music, camp meetings, prayer
+                        sessions and many others
+                        .It’s very important to believe that you’re called to be a child of God
+                        </p>
+                    <a
+                        href="https://doc-04-68-docs.googleusercontent.com/docs/securesc/id2vduquvnd0cjbn54mpou6r4ofmeopn/k73bvrg42j9222ohi5j46kc4nj6p1ktf/1586291925000/02796695199356099738/02796695199356099738/14oRVnwH38616Jd4jHXYUiZQS81foX9IR?e=download&authuser=0&nonce=b0gtjc7taas9i&user=02796695199356099738&hash=286ajbtggcpajiamvs6fhvrkjnd9fggs">
+                        <i class="fa fa-download"></i> Download Full Document
+                    </a>
                     <div class="opening-hours-location mt-30 d-flex align-items-center">
                         <!-- Opening Hours -->
                         <div class="opening-hours">
                             <h6><i class="fa fa-clock-o"></i> Opening Hours</h6>
-                            <p>Mon - Fri at 08:00 - 21:00 <br>Sunday at 09:00 - 18:00</p>
+                            <p>We're always opened</p>
                         </div>
                         <!-- Location -->
-                        <div class="location">
+                        <!-- <div class="location">
                             <h6><i class="fa fa-map-marker"></i> Location</h6>
                             <p>No 40 Baria Sreet 133/2 NewYork City, NY, United States</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-6">
                 <div class="about-thumbnail">
-                    <img src="img/bg-img/26.jpg" alt="">
+                    <img src="{% static 'mainapp/img/bg-img/26.jpg' %}" alt="">
                 </div>
             </div>
         </div>
@@ -55,14 +63,14 @@
 
 <!-- ##### Call To Action Area Start ##### -->
 <section class="call-to-action-area section-padding-100 bg-img bg-overlay"
-    style="background-image: url(img/bg-img/6.jpg)">
+    style="background-image: url(../../static/mainapp/img/bg-img/6.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="call-to-action-content text-center">
                     <h6>A Place For You</h6>
                     <h2>Find a place to connect and grow through a small group, class, or regular gathering.</h2>
-                    <a href="#" class="btn crose-btn btn-2">Become A Member</a>
+                    <a href="{% url 'mainapp:contact' %}" class="btn crose-btn btn-2">Become A Member</a>
                 </div>
             </div>
         </div>
@@ -77,9 +85,9 @@
             <!-- Section Heading -->
             <div class="col-12">
                 <div class="section-heading">
-                    <h2>Why Choose Us</h2>
-                    <p>Loaded with fast-paced worship, activities, and video teachings to address real issues that
-                        students face each day</p>
+                    <h2>Why Join Us</h2>
+                    <p>Loaded with fragrant praise and worship, activities, and teachings to address real issues that
+                        we all face us Christians. Your spiritual welfare is our concern</p>
                 </div>
             </div>
         </div>
@@ -88,28 +96,32 @@
             <!-- Single Why Choose Area -->
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="single-why-choose-us mb-100">
-                    <img src="img/core-img/why1.png" alt="">
-                    <h4>Committed Cohorts</h4>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form.</p>
+                    <img src="{% static 'mainapp/img/core-img/why1.png' %}" alt="">
+                    <h4>Talent Realization</h4>
+                    <p>Each one has a purpose and a role to play in the Body of Christ. We help you identify,
+                        nurture and build your talents for use in the Kingdom of God, that many may be saved
+                    </p>
                 </div>
             </div>
             <!-- Single Why Choose Area -->
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="single-why-choose-us mb-100">
-                    <img src="img/core-img/why2.png" alt="">
+                    <img src="../../static/mainapp/img/core-img/why2.png" alt="">
                     <h4>Trained Facilitators</h4>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form.</p>
+                    <p>We have highly trained and spirit filled executives who provide counselling and prayer sessions.
+                        We are here to listen and help you build your spirituality. Iron sharpeneth iron
+                    </p>
                 </div>
             </div>
             <!-- Single Why Choose Area -->
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="single-why-choose-us mb-100">
-                    <img src="img/core-img/why3.png" alt="">
-                    <h4>Access to Leading Voices</h4>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form.</p>
+                    <img src="../../static/mainapp/img/core-img/why3.png" alt="">
+                    <h4>Opportunity for exploits</h4>
+                    <p>We offer the platform to contribute your quota to the body of Christ. Be it in the music
+                        department,
+                        art department, drama department, we offer you the platform to reach out to many
+                    </p>
                 </div>
             </div>
         </div>
@@ -134,22 +146,22 @@
             <!-- Team Members Area -->
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="single-team-members text-center mb-100">
-                    <div class="team-thumb" style="background-image: url(img/bg-img/33.jpg);">
+                    <div class="team-thumb" style="background-image: url(../../static/mainapp/img/bg-img/33.jpg);">
                         <div class="team-social-info">
                             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <h6>Jackson Nash</h6>
-                    <span>Pastor</span>
+                    <h6>David Otchere</h6>
+                    <span>Founder | Pastor | Prophet | Musician</span>
                 </div>
             </div>
 
             <!-- Team Members Area -->
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="single-team-members text-center mb-100">
-                    <div class="team-thumb" style="background-image: url(img/bg-img/34.jpg);">
+                    <div class="team-thumb" style="background-image: url(../../static/mainapp/img/bg-img/34.jpg);">
                         <div class="team-social-info">
                             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -164,7 +176,7 @@
             <!-- Team Members Area -->
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="single-team-members text-center mb-100">
-                    <div class="team-thumb" style="background-image: url(img/bg-img/35.jpg);">
+                    <div class="team-thumb" style="background-image: url(../../static/mainapp/img/bg-img/35.jpg);">
                         <div class="team-social-info">
                             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -179,7 +191,7 @@
             <!-- Team Members Area -->
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="single-team-members text-center mb-100">
-                    <div class="team-thumb" style="background-image: url(img/bg-img/36.jpg);">
+                    <div class="team-thumb" style="background-image: url(../../static/mainapp/img/bg-img/36.jpg);">
                         <div class="team-social-info">
                             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
