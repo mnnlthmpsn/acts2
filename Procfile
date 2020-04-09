@@ -1,1 +1,1 @@
-web: gunicorn acts2.wsgi --log-file -
+web: gunicorn acts2:application --log-file -
