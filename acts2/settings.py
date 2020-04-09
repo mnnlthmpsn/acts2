@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'ckeditor',
+    'gunicorn',
     'mainapp.apps.MainappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
