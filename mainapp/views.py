@@ -52,3 +52,6 @@ def mail(request):
     except:
         messages.add_message(request, messages.WARNING, 'Mail not sent')
     return HttpResponseRedirect(reverse('mainapp:contact'),)
+
+def error404(request, exception):
+    return render(request, '404.html',{'exception': exception}, content_type='text/html', charset='utf-8', status=404, )
